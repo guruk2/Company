@@ -44,19 +44,8 @@
             this.dataSet1 = new Company.DataSet1();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.detailWorkBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Hoist_Work_OrderTableAdapter = new Company.DataSet1TableAdapters.Hoist_Work_OrderTableAdapter();
-            this.detailWorkBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.delToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.hoistInfoSheetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hoist_Info_SheetTableAdapter = new Company.DataSet1TableAdapters.Hoist_Info_SheetTableAdapter();
             this.companyNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -132,18 +121,30 @@
             this.brakeMHTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.brakeCTTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.brakeCTModelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoistInfoSheetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.detailWorkBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Hoist_Work_OrderTableAdapter = new Company.DataSet1TableAdapters.Hoist_Work_OrderTableAdapter();
+            this.detailWorkBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.delToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hoist_Info_SheetTableAdapter = new Company.DataSet1TableAdapters.Hoist_Info_SheetTableAdapter();
+            this.Dispatched_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource2)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoistInfoSheetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource2)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -164,9 +165,9 @@
             this.tabPage4.Controls.Add(this.dataGridView1);
             this.tabPage4.Controls.Add(this.textBox1);
             this.tabPage4.Controls.Add(this.label28);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(705, 423);
+            this.tabPage4.Size = new System.Drawing.Size(705, 421);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -191,15 +192,15 @@
             this.wONODataGridViewTextBoxColumn,
             this.Sales_Rep,
             this.City,
-            this.Capacity});
+            this.Capacity,
+            this.Dispatched_Status});
             this.dataGridView1.DataSource = this.detailWorkBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 196);
+            this.dataGridView1.Location = new System.Drawing.Point(81, 202);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(644, 209);
             this.dataGridView1.TabIndex = 3;
-           
             // 
             // companyNameDataGridViewTextBoxColumn
             // 
@@ -275,79 +276,18 @@
             this.label28.TabIndex = 1;
             this.label28.Text = "Search";
             // 
-            // detailWorkBindingSource
-            // 
-            this.detailWorkBindingSource.DataMember = "Hoist_Work_Order";
-            this.detailWorkBindingSource.DataSource = this.dataSet1BindingSource;
-            // 
-            // Hoist_Work_OrderTableAdapter
-            // 
-            this.Hoist_Work_OrderTableAdapter.ClearBeforeFill = true;
-            // 
-            // detailWorkBindingSource2
-            // 
-            this.detailWorkBindingSource2.DataMember = "Hoist_Work_Order";
-            this.detailWorkBindingSource2.DataSource = this.dataSet1BindingSource;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleToolStripMenuItem,
-            this.delToolStripMenuItem,
-            this.deleteToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 70);
-            // 
-            // deleToolStripMenuItem
-            // 
-            this.deleToolStripMenuItem.Name = "deleToolStripMenuItem";
-            this.deleToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.deleToolStripMenuItem.Text = "Delete";
-            this.deleToolStripMenuItem.Click += new System.EventHandler(this.deleToolStripMenuItem_Click);
-            // 
-            // delToolStripMenuItem
-            // 
-            this.delToolStripMenuItem.Name = "delToolStripMenuItem";
-            this.delToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.delToolStripMenuItem.Text = "Edit";
-            this.delToolStripMenuItem.Click += new System.EventHandler(this.delToolStripMenuItem_Click);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.deleteToolStripMenuItem.Text = "View";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataGridView2);
             this.tabPage1.Controls.Add(this.textBox2);
             this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(705, 423);
+            this.tabPage1.Size = new System.Drawing.Size(705, 421);
             this.tabPage1.TabIndex = 4;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(489, 35);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 0;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(228, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 20);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // dataGridView2
             // 
@@ -435,15 +375,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(692, 150);
             this.dataGridView2.TabIndex = 2;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // hoistInfoSheetBindingSource
-            // 
-            this.hoistInfoSheetBindingSource.DataMember = "Hoist_Info_Sheet";
-            this.hoistInfoSheetBindingSource.DataSource = this.dataSet1BindingSource;
-            // 
-            // hoist_Info_SheetTableAdapter
-            // 
-            this.hoist_Info_SheetTableAdapter.ClearBeforeFill = true;
             // 
             // companyNameDataGridViewTextBoxColumn1
             // 
@@ -895,6 +826,83 @@
             this.brakeCTModelDataGridViewTextBoxColumn.HeaderText = "Brake_CT_Model";
             this.brakeCTModelDataGridViewTextBoxColumn.Name = "brakeCTModelDataGridViewTextBoxColumn";
             // 
+            // hoistInfoSheetBindingSource
+            // 
+            this.hoistInfoSheetBindingSource.DataMember = "Hoist_Info_Sheet";
+            this.hoistInfoSheetBindingSource.DataSource = this.dataSet1BindingSource;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(228, 36);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(243, 20);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(489, 35);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 0;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // detailWorkBindingSource
+            // 
+            this.detailWorkBindingSource.DataMember = "Hoist_Work_Order";
+            this.detailWorkBindingSource.DataSource = this.dataSet1BindingSource;
+            // 
+            // Hoist_Work_OrderTableAdapter
+            // 
+            this.Hoist_Work_OrderTableAdapter.ClearBeforeFill = true;
+            // 
+            // detailWorkBindingSource2
+            // 
+            this.detailWorkBindingSource2.DataMember = "Hoist_Work_Order";
+            this.detailWorkBindingSource2.DataSource = this.dataSet1BindingSource;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleToolStripMenuItem,
+            this.delToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 70);
+            // 
+            // deleToolStripMenuItem
+            // 
+            this.deleToolStripMenuItem.Name = "deleToolStripMenuItem";
+            this.deleToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleToolStripMenuItem.Text = "Delete";
+            this.deleToolStripMenuItem.Click += new System.EventHandler(this.deleToolStripMenuItem_Click);
+            // 
+            // delToolStripMenuItem
+            // 
+            this.delToolStripMenuItem.Name = "delToolStripMenuItem";
+            this.delToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.delToolStripMenuItem.Text = "Edit";
+            this.delToolStripMenuItem.Click += new System.EventHandler(this.delToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Text = "View";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // hoist_Info_SheetTableAdapter
+            // 
+            this.hoist_Info_SheetTableAdapter.ClearBeforeFill = true;
+            // 
+            // Dispatched_Status
+            // 
+            this.Dispatched_Status.DataPropertyName = "Dispatched_Status";
+            this.Dispatched_Status.HeaderText = "Dispatched_Status";
+            this.Dispatched_Status.Name = "Dispatched_Status";
+            this.Dispatched_Status.ReadOnly = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -911,13 +919,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource2)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoistInfoSheetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource2)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1028,5 +1036,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn brakeMHTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn brakeCTTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn brakeCTModelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dispatched_Status;
     }
 }

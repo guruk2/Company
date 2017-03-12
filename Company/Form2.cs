@@ -36,6 +36,7 @@ namespace Company
         public String Date_Start_S { get; private set; }
         public String Date_End_S { get; private set; }
         public String Search { get; private set; }
+       
         private OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Company\Database1.mdb");
   
         private string seleced;
@@ -88,7 +89,7 @@ namespace Company
              this.Hoist_Work_OrderTableAdapter.Fill(this.dataSet1.Hoist_Work_Order);
             
             connection.Open();
-            DataTable tableColumns = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Columns, new object[] { null, null, "Hoist_Work_Order", null });
+           /* DataTable tableColumns = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Columns, new object[] { null, null, "Hoist_Work_Order", null });
 
             foreach (DataRow row in tableColumns.Rows)
             {
@@ -102,8 +103,26 @@ namespace Company
             {
 
                 comboBox2.Items.Add(row["COLUMN_NAME"].ToString());
-            }
+            }*/
+            Dictionary<string, string> test = new Dictionary<string, string>();
+            test.Add("Company_Name", "Company Name");
+            test.Add("City", "City");
+            test.Add("State", "State");
+            test.Add("W_O_NO", "Work order No");
+            test.Add("P_O", "P.O No");
+            test.Add("Dispatched_Status", "Dispatch status");
+    
+        
 
+
+
+
+
+            comboBox1.DataSource = new BindingSource(test, null);
+            comboBox1.DisplayMember = "Value";
+            comboBox1.ValueMember = "Key";
+
+       
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -125,13 +144,15 @@ namespace Company
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             try
             {
-                seleced = this.comboBox1.Items[this.comboBox1.SelectedIndex].ToString();
+
+                seleced =(string)comboBox1.SelectedValue;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error" + ex);
+               
             }
         }
        
