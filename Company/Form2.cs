@@ -84,7 +84,7 @@ namespace Company
             // TODO: This line of code loads data into the 'dataSet1.Hoist_Info_Sheet' table. You can move, or remove it, as needed.
             this.hoist_Info_SheetTableAdapter.Fill(this.dataSet1.Hoist_Info_Sheet);
             this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
-            this.deleToolStripMenuItem.Click += new System.EventHandler(this.DeleteRow_Click);
+           // this.deleToolStripMenuItem.Click += new System.EventHandler(this.DeleteRow_Click);
             // TODO: This line of code loads data into the 'dataSet1.Detail_Work' table. You can move, or remove it, as needed.
              this.Hoist_Work_OrderTableAdapter.Fill(this.dataSet1.Hoist_Work_Order);
             
@@ -111,18 +111,24 @@ namespace Company
             test.Add("W_O_NO", "Work order No");
             test.Add("P_O", "P.O No");
             test.Add("Dispatched_Status", "Dispatch status");
-    
-        
-
-
-
-
 
             comboBox1.DataSource = new BindingSource(test, null);
             comboBox1.DisplayMember = "Value";
             comboBox1.ValueMember = "Key";
 
-       
+            Dictionary<string, string> test1 = new Dictionary<string, string>();
+            test1.Add("Company_Name", "Company Name");
+            test1.Add("City", "City");
+            test1.Add("W_O_NO", "Work order No");
+            test1.Add("P_O", "P.O No");
+            test1.Add("Sl_no", "Sl No");
+
+            comboBox2.DataSource = new BindingSource(test1, null);
+            comboBox2.DisplayMember = "Value";
+            comboBox2.ValueMember = "Key";
+
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -147,8 +153,14 @@ namespace Company
             
             try
             {
-
-                seleced =(string)comboBox1.SelectedValue;
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    seleced = "Company_Name";
+                }
+                else
+                {
+                    seleced = (string)comboBox1.SelectedValue;
+                }
             }
             catch (Exception ex)
             {
@@ -185,7 +197,9 @@ namespace Company
 
         private void deleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Int32 rowToDelete = dataGridView1.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            dataGridView1.Rows.RemoveAt(rowToDelete);
+            dataGridView1.ClearSelection();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -195,8 +209,9 @@ namespace Company
 
         private void delToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Search = comboBox1.Text;
-            Work_Order = textBox1.Text;
+            string value = dataGridView1.SelectedCells[0].Value.ToString();
+            Search = seleced;
+            Work_Order = value; 
             Form13 f13 = new Form13(this);
             f13.Show();
             /*  foreach (DataGridViewRow row in dataGridView1.SelectedRows)
@@ -216,16 +231,18 @@ namespace Company
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           /* Search = comboBox1.Text;
-            Work_Order = textBox1.Text;
+            string value = dataGridView1.SelectedCells[0].Value.ToString();
+            Search = seleced;
+            Work_Order = value;
             Form10 f10 = new Form10(this);
             f10.ShowDialog();
-            MessageBox.Show("view");*/
-           string value= dataGridView1.SelectedCells[0].Value.ToString();
+            MessageBox.Show("view");
+          /* string value= dataGridView1.SelectedCells[0].Value.ToString();
 
            Dictionary.Instance.Add("name", value);
            string value1 = Dictionary.Instance["name"];
-            MessageBox.Show(value1);
+       
+            MessageBox.Show(seleced);*/
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -251,11 +268,12 @@ namespace Company
         {
             try
             {
-                seleced = this.comboBox2.Items[this.comboBox2.SelectedIndex].ToString();
+
+                seleced = (string)comboBox2.SelectedValue;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error" + ex);
+
             }
         }
 
@@ -273,10 +291,34 @@ namespace Company
 
                 var mousePosition = dataGridView2.PointToClient(Cursor.Position);
 
-                contextMenuStrip1.Show(dataGridView2, mousePosition);
+                contextMenuStrip2.Show(dataGridView2, mousePosition);
             }
         }
 
-     
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Int32 rowToDelete = dataGridView2.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            dataGridView2.Rows.RemoveAt(rowToDelete);
+            dataGridView2.ClearSelection();
+        }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string value = dataGridView1.SelectedCells[0].Value.ToString();
+            Search = seleced;
+            Work_Order = value;
+            Form12 f12 = new Form12(this);
+            f12.ShowDialog();
+            MessageBox.Show("view");
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string value = dataGridView1.SelectedCells[0].Value.ToString();
+            Search = seleced;
+            Work_Order = value;
+            Form13 f13 = new Form13(this);
+            f13.Show();
+        }
     }
 }

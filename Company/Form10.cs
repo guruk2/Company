@@ -42,7 +42,7 @@ namespace Company
                 DataSet dataSet = new DataSet();
                 //DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataSet, "Hoist_Work_Order");
-                reportDocument.Load(@"E:\Company\Company\Report.rpt");
+                reportDocument.Load(@"E:\Company-master\Company\Hoist_Work_Order_Report.rpt");
                 reportDocument.SetDataSource(dataSet);
                 crystalReportViewer1.ReportSource = reportDocument;
                 connection.Close();

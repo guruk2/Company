@@ -31,13 +31,13 @@ namespace Company
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                command.CommandText = "select * from Detail_Work where W_O_NO = '" + this._f2.Work_Order_S + "' and Company_Name = '" + this._f2.Company_Name_S + "' and City = '" + this._f2.City_S + "' and P_O = '" + this._f2.PO_No_S + "' and Sales_Rep = '" + this._f2.Sales_S + "' and Date BETWEEN '" + this._f2.Date_Start_S+ "' AND '" + this._f2.Date_End_S + "' ";
+                command.CommandText = "select * from Hoist_Info_Sheet where " + this._f2.Search + " = '" + this._f2.Work_Order + "'";           //W_O_NO = '" + this._f2.Work_Order_S + "' and Company_Name = '" + this._f2.Company_Name_S + "' and City = '" + this._f2.City_S + "' and P_O = '" + this._f2.PO_No_S + "' and Sales_Rep = '" + this._f2.Sales_S + "' and Date BETWEEN '" + this._f2.Date_Start_S+ "' AND '" + this._f2.Date_End_S + "' "
 
                 OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
                 DataSet dataSet = new DataSet();
                 //DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataSet, "Detail_Work");
-                reportDocument.Load(@"E:\Company\Company\CrystalReport1.rpt");
+                reportDocument.Load(@"E:\Company-master\Company\Hoist_Information_Sheet.rpt");
                 reportDocument.SetDataSource(dataSet);
                 crystalReportViewer1.ReportSource = reportDocument;
                 connection.Close();

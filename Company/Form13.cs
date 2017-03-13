@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Globalization;
 
 
 namespace Company
@@ -31,11 +32,18 @@ Persist Security Info=False;";
             OleDbCommand command = new OleDbCommand();
             command.Connection = connection;
             command.CommandText = "select * from Hoist_Work_Order where " + this._f2.Search + " = '" + this._f2.Work_Order + "'";
+            Console.WriteLine(this._f2.Search);
             OleDbDataReader data = command.ExecuteReader();
 
             while (data.Read())
             {
-                txt_Date.Text = Convert.ToDateTime(data["Date"]).ToString("dd/MM/yyyy");
+             
+                string ti = Convert.ToDateTime(data["Date"]).ToString("dd/MM/yyyy");
+                string ti1 = Convert.ToDateTime(data["P_O_Date"]).ToString("dd/MM/yyyy");
+                string ti2 = Convert.ToDateTime(data["Delivery_Date"]).ToString("dd/MM/yyyy");
+               
+              
+                txt_Date.Text = DateTime.ParseExact(ti, "dd/MM/yyyy", null).ToString();
                 string company = data.GetString(1); txt_Company_Name.Text = company;
                 string address = data.GetString(2); txt_Address.Text = address;
                 string city = data.GetString(3); txt_City.Text = city;
@@ -47,7 +55,8 @@ Persist Security Info=False;";
                 string additionalfeature = data.GetString(9); txt_AddF.Text = additionalfeature;
                 string heightoflift = data.GetString(10); txt_Height_of_Lift.Text = heightoflift;
                 string sales = data.GetString(11); txt_SalesRep.Text = sales;
-                txt_Delivery_Date.Text = Convert.ToDateTime(data["Delivery_Date"]).ToString("dd/MM/yyyy");
+
+                txt_Delivery_Date.Text = DateTime.ParseExact(ti2, "dd/MM/yyyy", null).ToString();
                 string wono = data.GetString(13); txt_W_O_no.Text = wono;
                 string tin = data.GetString(14); txt_Tin.Text = tin;
                 string hoistspeed = data.GetString(15); txt_Hoisting_Speed.Text = hoistspeed;
@@ -71,7 +80,8 @@ Persist Security Info=False;";
                // string hoistcreep = data.GetString(33); txt_HoistCreep.Text = hoistcreep;
                 string packing = data.GetString(34); txt_Packing.Text = packing;
                 string transportation = data.GetString(35); txt_Transportaion.Text = transportation;
-                txt_P_O_Date.Text = Convert.ToDateTime(data["P_O_Date"]).ToString("dd/MM/yyyy");
+
+                txt_P_O_Date.Text = DateTime.ParseExact(ti1, "dd/MM/yyyy", null).ToString();
                 string contactperson = data.GetString(37); txt_Contact_Person.Text = contactperson;
                 string phone = data.GetString(38); txt_Phone.Text = phone;
                 string quality = data.GetString(39); txt_Quality.Text = quality;
@@ -86,8 +96,7 @@ Persist Security Info=False;";
 
         private void bttn_save_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
@@ -98,11 +107,7 @@ Persist Security Info=False;";
                 Work_Order = txt_W_O_no.Text;
                 Form14 f14 = new Form14(this);
                 f14.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error" + ex);
-            }
+            
         }
     }
 }

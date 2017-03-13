@@ -1512,7 +1512,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(838, 749);
+            this.ClientSize = new System.Drawing.Size(838, 741);
             this.Controls.Add(this.txt_Company_Name);
             this.Controls.Add(this.txt_Tin);
             this.Controls.Add(this.textBox17);
@@ -1635,7 +1635,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "Form13";
-            this.Text = "Form13";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.Form13_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
