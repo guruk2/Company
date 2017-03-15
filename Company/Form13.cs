@@ -37,12 +37,12 @@ Persist Security Info=False;";
 
             while (data.Read())
             {
-             
+
                 string ti = Convert.ToDateTime(data["Date"]).ToString("dd/MM/yyyy");
                 string ti1 = Convert.ToDateTime(data["P_O_Date"]).ToString("dd/MM/yyyy");
                 string ti2 = Convert.ToDateTime(data["Delivery_Date"]).ToString("dd/MM/yyyy");
-               
-              
+
+
                 txt_Date.Text = DateTime.ParseExact(ti, "dd/MM/yyyy", null).ToString();
                 string company = data.GetString(1); txt_Company_Name.Text = company;
                 string address = data.GetString(2); txt_Address.Text = address;
@@ -77,7 +77,7 @@ Persist Security Info=False;";
                 string ctcreep = data.GetString(30); txt_CTCreep.Text = ctcreep;
                 string flagewidth = data.GetString(31); txt_FlangeWidth.Text = flagewidth;
                 string outdoorcover = data.GetString(32); txt_OutDoorCover.Text = outdoorcover;
-               // string hoistcreep = data.GetString(33); txt_HoistCreep.Text = hoistcreep;
+                // string hoistcreep = data.GetString(33); txt_HoistCreep.Text = hoistcreep;
                 string packing = data.GetString(34); txt_Packing.Text = packing;
                 string transportation = data.GetString(35); txt_Transportaion.Text = transportation;
 
@@ -96,18 +96,90 @@ Persist Security Info=False;";
 
         private void bttn_save_Click(object sender, EventArgs e)
         {
-            
-                connection.Open();
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                command.CommandText = "UPDATE Hoist_Work_Order SET Company_Name='" + txt_Company_Name.Text + "',[Date]=" + txt_Date.Text + ",Address='" + txt_Address.Text + "',City='" + txt_City.Text + "',State='" + txt_State.Text + "',P_O='" + txt_P_O_No.Text + "',P_O_Date='" + txt_P_O_Date.Text + "',Contact_Person='" + txt_Contact_Person.Text + "',Phone='" + txt_Phone.Text + "',TIN='" + txt_Tin.Text + "',Delivery_Date='" + txt_Delivery_Date.Text + "',Capacity='" + txt_Capacity.Text + "',Quality='" + txt_Quality.Text + "',Hoist_Size='" + txt_Hoist_Size.Text + "',Height_of_lift='" + txt_Height_of_Lift.Text + "',Fall='" + txt_Fall.Text + "',Hoist_Code='" + txt_Hoist_Code.Text + "',Hoist_Type='" + txt_Hoist_type.Text + "',Additional_Feature='" + txt_AddF.Text + "',Hoisting_Speed='" + txt_Hoisting_Speed.Text + "',Hoist_Motor='" + txt_Hoist_motor.Text + "',Hoist_Motor_RPM='" + txt_Hoist_Motor_RPM.Text + "',Hoist_Brake='" + txt_Hoist_Brake.Text + "',Rope_Drum_Code='" + txt_Rope_Drum_Code.Text + "',Wire_Rope='" + txt_Wire_Rope.Text + "',CT_Speed='" + txt_C_T_Speed.Text + "',CT_Motor='" + txt_C_T_Motor.Text + "',CT_Motor_rpm='" + txt_CTMotor_RPM.Text + "',CT_Brake='" + txt_CTBrake.Text + "',CT_Gear_Box='" + txt_GearBox.Text + "',CT_Wheel='" + txt_CTWheel.Text + "',Gravity_Type='" + txt_GravityType.Text + "',CT_Limit_switch='" + txt_CTLimitSwitch.Text + "',Hoist_Creep='" + txt_HoistCreep.Text + "',CT_Creep='" + txt_CTCreep.Text + "',Flange_Width='" + txt_FlangeWidth.Text + "',Out_door_cover='" + txt_OutDoorCover.Text + "',Packing='" + txt_Packing.Text + "',Transportation='" + txt_Transportaion.Text + "',Sales_Rep='" + txt_SalesRep.Text + "',Brake_MH_Type='" + txt_Brake_MH_Type.Text + "',Brake_CT_Type='" + txt_Brake_CT_Type.Text + "',CT_Wheel_Type='" + txt_Wheel_CT_Type.Text + "' where W_O_NO=" + txt_W_O_no.Text + "";
-                command.ExecuteNonQuery();
-                MessageBox.Show("Data Saved");
+                command.CommandType = CommandType.Text;
+                command.CommandText = "UPDATE Hoist_Work_Order SET  [Company_Name] = ?,[Date]  = ?,[Address ] = ?,[City ] = ?,[State ] = ?,[P_O ] = ?,[Capacity ] = ?,[Hoist_Size ] = ?,[Hoist_Type ] = ?,[Additional_Feature ] = ?,[Height_of_lift ] = ?,[Sales_Rep ] = ?,[Delivery_Date ] = ?,[TIN ] = ?,[Hoisting_Speed ] = ?,[Hoist_Motor ] = ?,[Hoist_Motor_RPM ] = ?,[Hoist_Brake ] = ?,[Rope_Drum_Code ] = ?,[Wire_Rope ] = ?,[Gravity_Type ] = ?,[CT_Speed ] = ?,[CT_Motor ] = ?,[CT_Motor_rpm ] = ?,[CT_Brake ] = ?,[CT_Gear_Box ] = ?,[CT_Wheel ] = ?,[CT_Limit_switch ] = ?,[Hoist_Creep ] = ?,[CT_Creep ] = ?,[Flange_Width ] = ?,[Out_door_cover ] = ?,[Packing ] = ?,[Transportation ] = ?,[P_O_Date ] = ?,[Contact_Person ] = ?,[Phone ] = ?,[Quality ] = ?,[Fall ] = ?,[Hoist_Code ] = ?,[Brake_MH_Type ] = ?,[Brake_CT_Type ] = ?,[CT_Wheel_Type ] = ? WHERE ([W_O_NO] = ?)";
+
+ command.Parameters.AddWithValue("@Company_Name",txt_Company_Name.Text);
+command.Parameters.AddWithValue("@Date", txt_Date.Text );
+command.Parameters.AddWithValue("@Address", txt_Address.Text );
+command.Parameters.AddWithValue("@City",txt_City.Text );
+command.Parameters.AddWithValue("@State",txt_State.Text );
+command.Parameters.AddWithValue("@P_O", txt_P_O_No.Text);
+command.Parameters.AddWithValue("@Capacity", txt_Capacity.Text);
+command.Parameters.AddWithValue("@Hoist_Size",txt_Hoist_Size.Text );
+command.Parameters.AddWithValue("@Hoist_Type", txt_Hoist_type.Text);
+command.Parameters.AddWithValue("@Additional_Feature", txt_AddF.Text);
+command.Parameters.AddWithValue("@Height_of_lift", txt_Height_of_Lift.Text);
+command.Parameters.AddWithValue("@Sales_Rep",  txt_SalesRep.Text);
+command.Parameters.AddWithValue("@Delivery_Date", txt_Delivery_Date.Text);
+command.Parameters.AddWithValue("@TIN", txt_Tin.Text);
+command.Parameters.AddWithValue("@Hoisting_Speed", txt_Hoisting_Speed.Text);
+command.Parameters.AddWithValue("@Hoist_Motor", txt_Hoist_motor.Text);
+command.Parameters.AddWithValue("@Hoist_Motor_RPM", txt_Hoist_Motor_RPM.Text);
+command.Parameters.AddWithValue("@Hoist_Brake",  txt_Hoist_Brake.Text);
+command.Parameters.AddWithValue("@Rope_Drum_Code", txt_Rope_Drum_Code.Text);
+command.Parameters.AddWithValue("@Wire_Rope", txt_Wire_Rope.Text);
+command.Parameters.AddWithValue("@Gravity_Type", txt_GravityType.Text );
+command.Parameters.AddWithValue("@CT_Speed", txt_C_T_Speed.Text);
+command.Parameters.AddWithValue("@CT_Motor", txt_C_T_Motor.Text);
+command.Parameters.AddWithValue("@CT_Motor_rpm", txt_CTMotor_RPM.Text);
+command.Parameters.AddWithValue("@CT_Brake", txt_CTBrake.Text);
+command.Parameters.AddWithValue("@CT_Gear_Box", txt_GearBox.Text);
+command.Parameters.AddWithValue("@CT_Wheel", txt_CTWheel.Text);
+command.Parameters.AddWithValue("@CT_Limit_switch", txt_CTLimitSwitch.Text);
+command.Parameters.AddWithValue("@Hoist_Creep", txt_HoistCreep.Text);
+command.Parameters.AddWithValue("@CT_Creep", txt_CTCreep.Text);
+command.Parameters.AddWithValue("@Flange_Width", txt_FlangeWidth.Text);
+command.Parameters.AddWithValue("@Out_door_cover", txt_OutDoorCover.Text);
+command.Parameters.AddWithValue("@Packing", txt_Packing.Text);
+command.Parameters.AddWithValue("@Transportation", txt_Transportaion.Text);
+command.Parameters.AddWithValue("@P_O_Date",txt_P_O_Date.Text );
+command.Parameters.AddWithValue("@Contact_Person", txt_Contact_Person.Text);
+command.Parameters.AddWithValue("@Phone", txt_Phone.Text);
+command.Parameters.AddWithValue("@Quality", txt_Quality.Text);
+command.Parameters.AddWithValue("@Fall", txt_Fall.Text);
+command.Parameters.AddWithValue("@Hoist_Code", txt_Hoist_Code.Text);
+command.Parameters.AddWithValue("@Brake_MH_Type", txt_Brake_MH_Type.Text);
+command.Parameters.AddWithValue("@Brake_CT_Type", txt_Brake_CT_Type.Text);
+command.Parameters.AddWithValue("@CT_Wheel_Type",txt_Wheel_CT_Type.Text);
+command.Parameters.AddWithValue("@W_O_NO", txt_W_O_no.Text);
+                //  command.Parameters.AddWithValue("@Company_Name", "guru");
+     
+                int a = command.ExecuteNonQuery();
                 connection.Close();
-                Work_Order = txt_W_O_no.Text;
-                Form14 f14 = new Form14(this);
-                f14.Show();
-            
+                if (a == 0)
+                {
+                    //Not updated. 
+                    MessageBox.Show("Error");
+                }
+
+                else
+                {
+                    MessageBox.Show("Data Saved");
+                    Work_Order = txt_W_O_no.Text;
+                    Form14 f14 = new Form14(this);
+                    f14.Show();
+                }
+            }
+            //Updated.
+            catch (OleDbException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         }
     }
-}
+
+
+       
+    
+
