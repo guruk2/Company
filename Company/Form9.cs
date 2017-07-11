@@ -31,13 +31,13 @@ namespace Company
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                command.CommandText = "select * from Detail_Work where W_O_NO = '" + this._f5.Work + "'";
+                command.CommandText = "select * from Hoist_Info_Sheet where W_O_NO = '" + this._f5.Work + "'";
 
                 OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
                 DataSet dataSet = new DataSet();
                 //DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataSet, "Detail_Work");
-                reportDocument.Load(@"E:\Company\Company\CrystalReport1.rpt");
+                reportDocument.Load(@"E:\Company\Company\Hoist_Information_Sheet.rpt");
                 reportDocument.SetDataSource(dataSet);
                 crystalReportViewer1.ReportSource = reportDocument;
                 connection.Close();

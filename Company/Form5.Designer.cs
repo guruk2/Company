@@ -784,7 +784,7 @@
             // 
             // txt_GuideThread_pitch
             // 
-            this.txt_GuideThread_pitch.Location = new System.Drawing.Point(590, 509);
+            this.txt_GuideThread_pitch.Location = new System.Drawing.Point(590, 508);
             this.txt_GuideThread_pitch.Name = "txt_GuideThread_pitch";
             this.txt_GuideThread_pitch.Size = new System.Drawing.Size(201, 20);
             this.txt_GuideThread_pitch.TabIndex = 299;
@@ -879,7 +879,7 @@
             // 
             // txt_GuideThredDepth
             // 
-            this.txt_GuideThredDepth.Location = new System.Drawing.Point(590, 489);
+            this.txt_GuideThredDepth.Location = new System.Drawing.Point(590, 488);
             this.txt_GuideThredDepth.Name = "txt_GuideThredDepth";
             this.txt_GuideThredDepth.Size = new System.Drawing.Size(201, 20);
             this.txt_GuideThredDepth.TabIndex = 288;
@@ -1864,7 +1864,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(919, 741);
+            this.ClientSize = new System.Drawing.Size(936, 741);
             this.Controls.Add(this.txt_PO_Date);
             this.Controls.Add(this.txt_Company_Name);
             this.Controls.Add(this.txt_HoistType);
@@ -2053,6 +2053,7 @@
             this.Controls.Add(this.label2);
             this.Name = "Form5";
             this.Text = "Form5";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formclose);
             this.Load += new System.EventHandler(this.Form5_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

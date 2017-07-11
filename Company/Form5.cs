@@ -88,5 +88,10 @@ Persist Security Info=False;";
                 MessageBox.Show("Error" + ex);
             }
         }
+
+        private void formclose(object sender, FormClosingEventArgs e)
+        {
+           
+        }
     }
 }

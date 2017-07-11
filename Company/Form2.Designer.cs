@@ -34,11 +34,10 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wONODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sales_Rep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.W_O_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_O = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dispatched_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detailWorkBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -46,7 +45,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.companyNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.slnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wONODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hoistInfoSheetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -56,18 +61,13 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hoist_Info_SheetTableAdapter = new Company.DataSet1TableAdapters.Hoist_Info_SheetTableAdapter();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.companyNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.slnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wONODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.hoistInfoSheetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -81,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hoistInfoSheetBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -105,7 +106,7 @@
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(705, 423);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.Text = "Hoist Work Order";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // comboBox1
@@ -124,19 +125,19 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.companyNameDataGridViewTextBoxColumn,
-            this.pODataGridViewTextBoxColumn,
-            this.wONODataGridViewTextBoxColumn,
-            this.Sales_Rep,
             this.City,
-            this.Capacity,
+            this.State,
+            this.W_O_NO,
+            this.P_O,
             this.Dispatched_Status});
             this.dataGridView1.DataSource = this.detailWorkBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 190);
+            this.dataGridView1.Location = new System.Drawing.Point(26, 233);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(644, 209);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 161);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // companyNameDataGridViewTextBoxColumn
             // 
@@ -145,27 +146,6 @@
             this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
             this.companyNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // pODataGridViewTextBoxColumn
-            // 
-            this.pODataGridViewTextBoxColumn.DataPropertyName = "P_O";
-            this.pODataGridViewTextBoxColumn.HeaderText = "P_O";
-            this.pODataGridViewTextBoxColumn.Name = "pODataGridViewTextBoxColumn";
-            this.pODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // wONODataGridViewTextBoxColumn
-            // 
-            this.wONODataGridViewTextBoxColumn.DataPropertyName = "W_O_NO";
-            this.wONODataGridViewTextBoxColumn.HeaderText = "W_O_NO";
-            this.wONODataGridViewTextBoxColumn.Name = "wONODataGridViewTextBoxColumn";
-            this.wONODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Sales_Rep
-            // 
-            this.Sales_Rep.DataPropertyName = "Sales_Rep";
-            this.Sales_Rep.HeaderText = "Sales_Rep";
-            this.Sales_Rep.Name = "Sales_Rep";
-            this.Sales_Rep.ReadOnly = true;
-            // 
             // City
             // 
             this.City.DataPropertyName = "City";
@@ -173,12 +153,26 @@
             this.City.Name = "City";
             this.City.ReadOnly = true;
             // 
-            // Capacity
+            // State
             // 
-            this.Capacity.DataPropertyName = "Capacity";
-            this.Capacity.HeaderText = "Capacity";
-            this.Capacity.Name = "Capacity";
-            this.Capacity.ReadOnly = true;
+            this.State.DataPropertyName = "State";
+            this.State.HeaderText = "State";
+            this.State.Name = "State";
+            this.State.ReadOnly = true;
+            // 
+            // W_O_NO
+            // 
+            this.W_O_NO.DataPropertyName = "W_O_NO";
+            this.W_O_NO.HeaderText = "W_O_NO";
+            this.W_O_NO.Name = "W_O_NO";
+            this.W_O_NO.ReadOnly = true;
+            // 
+            // P_O
+            // 
+            this.P_O.DataPropertyName = "P_O";
+            this.P_O.HeaderText = "P_O";
+            this.P_O.Name = "P_O";
+            this.P_O.ReadOnly = true;
             // 
             // Dispatched_Status
             // 
@@ -213,7 +207,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(21, 40);
+            this.label28.Location = new System.Drawing.Point(31, 40);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(138, 13);
             this.label28.TabIndex = 1;
@@ -230,8 +224,17 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(705, 423);
             this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Hoist Information Sheet";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(49, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(169, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Search In Hoist Information Sheet ";
             // 
             // dataGridView2
             // 
@@ -243,107 +246,12 @@
             this.pODataGridViewTextBoxColumn1,
             this.slnoDataGridViewTextBoxColumn,
             this.wONODataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.hoistInfoSheetBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(80, 219);
+            this.dataGridView2.DataSource = this.hoistInfoSheetBindingSource1;
+            this.dataGridView2.Location = new System.Drawing.Point(67, 220);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(544, 150);
+            this.dataGridView2.Size = new System.Drawing.Size(544, 159);
             this.dataGridView2.TabIndex = 2;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // hoistInfoSheetBindingSource
-            // 
-            this.hoistInfoSheetBindingSource.DataMember = "Hoist_Info_Sheet";
-            this.hoistInfoSheetBindingSource.DataSource = this.dataSet1BindingSource;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(228, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 20);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(489, 35);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 0;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // detailWorkBindingSource
-            // 
-            this.detailWorkBindingSource.DataMember = "Hoist_Work_Order";
-            this.detailWorkBindingSource.DataSource = this.dataSet1BindingSource;
-            // 
-            // Hoist_Work_OrderTableAdapter
-            // 
-            this.Hoist_Work_OrderTableAdapter.ClearBeforeFill = true;
-            // 
-            // detailWorkBindingSource2
-            // 
-            this.detailWorkBindingSource2.DataMember = "Hoist_Work_Order";
-            this.detailWorkBindingSource2.DataSource = this.dataSet1BindingSource;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.delToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.deleToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 70);
-            // 
-            // delToolStripMenuItem
-            // 
-            this.delToolStripMenuItem.Name = "delToolStripMenuItem";
-            this.delToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.delToolStripMenuItem.Text = "Edit";
-            this.delToolStripMenuItem.Click += new System.EventHandler(this.delToolStripMenuItem_Click);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.deleteToolStripMenuItem.Text = "View";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // hoist_Info_SheetTableAdapter
-            // 
-            this.hoist_Info_SheetTableAdapter.ClearBeforeFill = true;
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteToolStripMenuItem1,
-            this.editToolStripMenuItem,
-            this.viewToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(107, 70);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.editToolStripMenuItem.Text = "edit";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.viewToolStripMenuItem.Text = "view";
-            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Search In Hoist Information Sheet ";
             // 
             // companyNameDataGridViewTextBoxColumn1
             // 
@@ -375,12 +283,85 @@
             this.wONODataGridViewTextBoxColumn1.HeaderText = "W_O_NO";
             this.wONODataGridViewTextBoxColumn1.Name = "wONODataGridViewTextBoxColumn1";
             // 
+            // hoistInfoSheetBindingSource
+            // 
+            this.hoistInfoSheetBindingSource.DataMember = "Hoist_Info_Sheet";
+            this.hoistInfoSheetBindingSource.DataSource = this.dataSet1BindingSource;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(229, 51);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(243, 20);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(490, 50);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 0;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // detailWorkBindingSource
+            // 
+            this.detailWorkBindingSource.DataMember = "Hoist_Work_Order";
+            this.detailWorkBindingSource.DataSource = this.dataSet1BindingSource;
+            // 
+            // Hoist_Work_OrderTableAdapter
+            // 
+            this.Hoist_Work_OrderTableAdapter.ClearBeforeFill = true;
+            // 
+            // detailWorkBindingSource2
+            // 
+            this.detailWorkBindingSource2.DataMember = "Hoist_Work_Order";
+            this.detailWorkBindingSource2.DataSource = this.dataSet1BindingSource;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.deleToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 70);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // delToolStripMenuItem
+            // 
+            this.delToolStripMenuItem.Name = "delToolStripMenuItem";
+            this.delToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.delToolStripMenuItem.Text = "Edit";
+            this.delToolStripMenuItem.Click += new System.EventHandler(this.delToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Text = "View";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // deleToolStripMenuItem
             // 
             this.deleToolStripMenuItem.Name = "deleToolStripMenuItem";
-            this.deleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleToolStripMenuItem.Text = "Delete";
             this.deleToolStripMenuItem.Click += new System.EventHandler(this.deleToolStripMenuItem_Click);
+            // 
+            // hoist_Info_SheetTableAdapter
+            // 
+            this.hoist_Info_SheetTableAdapter.ClearBeforeFill = true;
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem1,
+            this.editToolStripMenuItem,
+            this.viewToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(107, 70);
             // 
             // deleteToolStripMenuItem1
             // 
@@ -388,6 +369,25 @@
             this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(106, 22);
             this.deleteToolStripMenuItem1.Text = "delete";
             this.deleteToolStripMenuItem1.Click += new System.EventHandler(this.deleteToolStripMenuItem1_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.editToolStripMenuItem.Text = "edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.viewToolStripMenuItem.Text = "view";
+            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            // 
+            // hoistInfoSheetBindingSource1
+            // 
+            this.hoistInfoSheetBindingSource1.DataMember = "Hoist_Info_Sheet";
+            this.hoistInfoSheetBindingSource1.DataSource = this.dataSet1;
             // 
             // Form2
             // 
@@ -413,6 +413,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.detailWorkBindingSource2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.hoistInfoSheetBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -433,21 +434,12 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem delToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn companyNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pODataGridViewTextBoxColumn;
-       
-        private System.Windows.Forms.DataGridViewTextBoxColumn wONODataGridViewTextBoxColumn;
-        
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sales_Rep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn City;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Capacity;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.BindingSource hoistInfoSheetBindingSource;
         private DataSet1TableAdapters.Hoist_Info_SheetTableAdapter hoist_Info_SheetTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dispatched_Status;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
@@ -459,5 +451,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn wONODataGridViewTextBoxColumn1;
         private System.Windows.Forms.ToolStripMenuItem deleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn City;
+        private System.Windows.Forms.DataGridViewTextBoxColumn State;
+        private System.Windows.Forms.DataGridViewTextBoxColumn W_O_NO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_O;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dispatched_Status;
+        private System.Windows.Forms.BindingSource hoistInfoSheetBindingSource1;
     }
 }

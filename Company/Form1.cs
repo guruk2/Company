@@ -39,7 +39,7 @@ Persist Security Info=False;";
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                command.CommandText = "select * from Admin_User_Detail where UserName = '" + text_username.Text + "' and Password = '" + text_password.Text + "' and Identity LIKE '%Admin%' ";
+                command.CommandText = "select * from Admin_User_Detail where UserName = '" + text_username.Text + "' and Password = '" + text_password.Text + "' and Designation LIKE '%Admin%' ";
                 OleDbDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
@@ -53,7 +53,8 @@ Persist Security Info=False;";
                 else
                 {
                     MessageBox.Show("Incorrect Details");
-                }
+                connection.Close();
+            }
 
                 connection.Close();
             
@@ -68,7 +69,7 @@ Persist Security Info=False;";
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
-                command.CommandText = "select * from Admin_User_Detail where UserName = '" + text_username.Text + "' and Password = '" + text_password.Text + "' and Identity LIKE '%User%' ";
+                command.CommandText = "select * from Admin_User_Detail where UserName = '" + text_username.Text + "' and Password = '" + text_password.Text + "' and Designation LIKE '%User%' ";
                 OleDbDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
@@ -83,6 +84,7 @@ Persist Security Info=False;";
                 else
                 {
                     MessageBox.Show("Incorrect Details");
+                    connection.Close();
                 }
 
                 connection.Close();
@@ -97,6 +99,12 @@ Persist Security Info=False;";
         {
            
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form18 f18 = new Form18();
+            f18.ShowDialog();
         }
     }
 }

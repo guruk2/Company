@@ -24,6 +24,14 @@ namespace Company
             connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Company\Database1.mdb";
         }
 
+        Form17 _f17;
+        public Form10(Form17 f17_)
+        {
+            InitializeComponent();
+            this._f17 = f17_;
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Company\Database1.mdb";
+        }
+
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
            
@@ -42,7 +50,7 @@ namespace Company
                 DataSet dataSet = new DataSet();
                 //DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataSet, "Hoist_Work_Order");
-                reportDocument.Load(@"E:\Company-master\Company\Hoist_Work_Order_Report.rpt");
+                reportDocument.Load(@"E:\Company\Company\Hoist_Work_Order_Report.rpt");
                 reportDocument.SetDataSource(dataSet);
                 crystalReportViewer1.ReportSource = reportDocument;
                 connection.Close();

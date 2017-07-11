@@ -89,21 +89,7 @@ namespace Company
              this.Hoist_Work_OrderTableAdapter.Fill(this.dataSet1.Hoist_Work_Order);
             
             connection.Open();
-           /* DataTable tableColumns = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Columns, new object[] { null, null, "Hoist_Work_Order", null });
-
-            foreach (DataRow row in tableColumns.Rows)
-            {
-
-                comboBox1.Items.Add(row["COLUMN_NAME"].ToString());   
-            }
-
-            DataTable tableColumn = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Columns, new object[] { null, null, "Hoist_Info_Sheet", null });
-
-            foreach (DataRow row in tableColumn.Rows)
-            {
-
-                comboBox2.Items.Add(row["COLUMN_NAME"].ToString());
-            }*/
+ 
             Dictionary<string, string> test = new Dictionary<string, string>();
             test.Add("Company_Name", "Company Name");
             test.Add("City", "City");
@@ -142,7 +128,7 @@ namespace Company
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Error textbox1");
             }
         }
 
@@ -153,14 +139,15 @@ namespace Company
             
             try
             {
-                if (comboBox1.SelectedIndex == 0)
-                {
-                    seleced = "Company_Name";
-                }
-                else
-                {
-                    seleced = (string)comboBox1.SelectedValue;
-                }
+                 if (comboBox1.SelectedIndex == 0)
+                 {
+                     seleced = "Company_Name";
+                 }
+                 else
+                 {
+                     seleced = (string)comboBox1.SelectedValue;
+                 }
+               
             }
             catch (Exception ex)
             {
@@ -209,21 +196,12 @@ namespace Company
 
         private void delToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string value = dataGridView1.SelectedCells[0].Value.ToString();
-            Search = seleced;
-            Work_Order = value; 
+            string value;
             Form13 f13 = new Form13(this);
+            Search = seleced;
+            value = dataGridView1.SelectedCells[comboBox1.SelectedIndex].Value.ToString();
+            Work_Order = value;
             f13.Show();
-            /*  foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-              {
-                  Company_Name_S = row.Cells[0].Value.ToString();
-                  Form13 f13 = new Form13(this);
-                  f13.Show();
-                  //string value2 = row.Cells[1].Value.ToString();
-
-              }*/
-
-
         }
 
 
@@ -231,18 +209,12 @@ namespace Company
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string value = dataGridView1.SelectedCells[0].Value.ToString();
-            Search = seleced;
-            Work_Order = value;
+            string value;
             Form10 f10 = new Form10(this);
-            f10.ShowDialog();
-            MessageBox.Show("view");
-          /* string value= dataGridView1.SelectedCells[0].Value.ToString();
-
-           Dictionary.Instance.Add("name", value);
-           string value1 = Dictionary.Instance["name"];
-       
-            MessageBox.Show(seleced);*/
+            Search = seleced;
+            value = dataGridView1.SelectedCells[comboBox1.SelectedIndex].Value.ToString();
+            Work_Order = value;
+            f10.Show();          
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -255,7 +227,7 @@ namespace Company
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Error textbox2");
             }
         }
 
@@ -268,8 +240,15 @@ namespace Company
         {
             try
             {
-
-                seleced = (string)comboBox2.SelectedValue;
+                if (comboBox2.SelectedIndex == 0)
+                {
+                    seleced = "Company_Name";
+                }
+                else
+                {
+                    seleced = (string)comboBox2.SelectedValue;
+                }
+               ;
             }
             catch (Exception ex)
             {
@@ -304,21 +283,31 @@ namespace Company
 
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string value = dataGridView1.SelectedCells[0].Value.ToString();
+            string value = dataGridView2.SelectedCells[0].Value.ToString();
             Search = seleced;
             Work_Order = value;
             Form12 f12 = new Form12(this);
             f12.ShowDialog();
-            MessageBox.Show("view");
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string value = dataGridView1.SelectedCells[0].Value.ToString();
+            string value;
+            Form16 f16 = new Form16(this);
             Search = seleced;
+            value = dataGridView2.SelectedCells[comboBox2.SelectedIndex].Value.ToString();
             Work_Order = value;
-            Form13 f13 = new Form13(this);
-            f13.Show();
+            f16.Show();
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

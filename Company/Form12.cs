@@ -36,8 +36,8 @@ namespace Company
                 OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
                 DataSet dataSet = new DataSet();
                 //DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataSet, "Detail_Work");
-                reportDocument.Load(@"E:\Company-master\Company\Hoist_Information_Sheet.rpt");
+                dataAdapter.Fill(dataSet, "Hoist_Information_Sheet");
+                reportDocument.Load(@"E:\Company\Company\Hoist_Information_Sheet.rpt");
                 reportDocument.SetDataSource(dataSet);
                 crystalReportViewer1.ReportSource = reportDocument;
                 connection.Close();

@@ -1322,7 +1322,7 @@
             // 
             this.txt_Delivery_Date.CustomFormat = "dd-MM-yyyy";
             this.txt_Delivery_Date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txt_Delivery_Date.Location = new System.Drawing.Point(620, 250);
+            this.txt_Delivery_Date.Location = new System.Drawing.Point(620, 249);
             this.txt_Delivery_Date.Name = "txt_Delivery_Date";
             this.txt_Delivery_Date.Size = new System.Drawing.Size(201, 20);
             this.txt_Delivery_Date.TabIndex = 165;
@@ -1353,7 +1353,7 @@
             // 
             this.txt_P_O_Date.CustomFormat = "";
             this.txt_P_O_Date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txt_P_O_Date.Location = new System.Drawing.Point(620, 129);
+            this.txt_P_O_Date.Location = new System.Drawing.Point(620, 128);
             this.txt_P_O_Date.Name = "txt_P_O_Date";
             this.txt_P_O_Date.Size = new System.Drawing.Size(201, 20);
             this.txt_P_O_Date.TabIndex = 162;

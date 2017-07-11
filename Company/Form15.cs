@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,7 +37,7 @@ namespace Company
                 OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command);
                 DataSet dataSet = new DataSet();
                 //DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataSet, "Detail_Work");
+                dataAdapter.Fill(dataSet, "Spare_Work_Order");
                 reportDocument.Load(@"E:\Company\Company\Spare_Work_Order.rpt");
                 reportDocument.SetDataSource(dataSet);
                 crystalReportViewer1.ReportSource = reportDocument;

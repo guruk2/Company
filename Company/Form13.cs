@@ -108,7 +108,7 @@ Persist Security Info=False;";
                 command.CommandType = CommandType.Text;
                 command.CommandText = "UPDATE Hoist_Work_Order SET  [Company_Name] = ?,[Date]  = ?,[Address ] = ?,[City ] = ?,[State ] = ?,[P_O ] = ?,[Capacity ] = ?,[Hoist_Size ] = ?,[Hoist_Type ] = ?,[Additional_Feature ] = ?,[Height_of_lift ] = ?,[Sales_Rep ] = ?,[Delivery_Date ] = ?,[TIN ] = ?,[Hoisting_Speed ] = ?,[Hoist_Motor ] = ?,[Hoist_Motor_RPM ] = ?,[Hoist_Brake ] = ?,[Rope_Drum_Code ] = ?,[Wire_Rope ] = ?,[Gravity_Type ] = ?,[CT_Speed ] = ?,[CT_Motor ] = ?,[CT_Motor_rpm ] = ?,[CT_Brake ] = ?,[CT_Gear_Box ] = ?,[CT_Wheel ] = ?,[CT_Limit_switch ] = ?,[Hoist_Creep ] = ?,[CT_Creep ] = ?,[Flange_Width ] = ?,[Out_door_cover ] = ?,[Packing ] = ?,[Transportation ] = ?,[P_O_Date ] = ?,[Contact_Person ] = ?,[Phone ] = ?,[Quality ] = ?,[Fall ] = ?,[Hoist_Code ] = ?,[Brake_MH_Type ] = ?,[Brake_CT_Type ] = ?,[CT_Wheel_Type ] = ? WHERE ([W_O_NO] = ?)";
 
- command.Parameters.AddWithValue("@Company_Name",txt_Company_Name.Text);
+command.Parameters.AddWithValue("@Company_Name",txt_Company_Name.Text);
 command.Parameters.AddWithValue("@Date", txt_Date.Text );
 command.Parameters.AddWithValue("@Address", txt_Address.Text );
 command.Parameters.AddWithValue("@City",txt_City.Text );
